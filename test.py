@@ -1,4 +1,3 @@
-from flask import request
 from src3 import app
 import unittest, requests
 
