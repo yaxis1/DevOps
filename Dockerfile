@@ -1,9 +1,10 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y --no-install-recommends \    
+RUN apt-get update && apt install -y --no-install-recommends \    
     python3 \
-    python3-pip \
-    apt-get clean && \
+    python3-pip 
+
+RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /theapp
