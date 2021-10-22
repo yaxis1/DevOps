@@ -3,7 +3,7 @@ import unittest, requests
 
 
 class FlaskTest(unittest.TestCase):
-    url = 'http://localhost:2021/'
+    url = 'http://localhost:2022/'
 
     def test_1_home(self):
         with app.app_context(): 
