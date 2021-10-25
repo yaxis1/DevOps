@@ -1,15 +1,23 @@
-version: '1.0'
+version: '3'
 
 services:
     #Service 1
-    deploy:
-      image: app
+    deploy: 
+      build: ./app
+      volumes:
+        - ./app:/app
       ports: 
        - 2021:2021
+         #hostport:containerport
 
     #Service 2
-    test:
-      image: app
+    website:
+      image: php:apache
+      volumes:
+        - ./website:/var/www/html
       ports: 
-       - 2022:2022
+       - 2022:2021
+         #hostport:containerport
+      depends_on:
+        - deploy
       
