@@ -1,3 +1,8 @@
+def install_requirements(){
+    //sh cat 'Installing requirements' 
+    bat 'pip install -r requirements.txt'
+}
+
 def run_app(){
     //sh cat 'Running Application' 
     bat 'python3 ./app/run.py'

@@ -4,16 +4,17 @@ pipeline {
     agent any
 
     stages {
-        stage ('Load env script'){
+        stage ('Loading groovy script and installing requirements'){
             steps{
-                echo "Loading groovy script"
+                echo "Loading groovy script and installing requirements"
                 script{
                     gv = load "script.groovy"
+                    gv.installRequirements()
                 }
             }
         }
 
-        stage ("Build Stage"){
+        stage ("Building Application"){
             steps{
                 echo'Building app'
                 script{
@@ -22,7 +23,7 @@ pipeline {
             }
         }
 
-        stage ("Test Stage"){
+        stage ("Testing Application"){
             steps{
                 echo 'Testing app'
                 script{
@@ -31,7 +32,7 @@ pipeline {
             }
         }
 
-        stage ("Deploy Stage"){
+        stage ("Deploying Docker"){
             steps{
                 echo 'Deploying Dockers'
                 script{
