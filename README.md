@@ -33,3 +33,18 @@ docker-compose up
 ```
 
 Once the services are up, we need to integrate this in a Jenkins CI CD pipeline. 
+
+
+# Jenkins Installation
+Jenkins can be installed either on the linux instance or local machine, since it is a production environment, it is a best practise to have jenkins portal available on local machine.
+
+A Java runtime is required for jenkins to run, after installing java, we move to jenkins directory and start jenkins.
+```
+java -jar jenkins.war
+```
+
+Once it is started, we will have an admin password which should be inserted on jenkins portal that is running on localhost:8080.
+
+We will use two features of Jenkins:
+1. FreeStyle Project - to check if the REST API is working as expected and 
+2. Pipeline to check - if Dockers are successfully deployed and hosting the website.
