@@ -19,7 +19,7 @@ pipeline {
             steps{
                 echo'Building app'
                 script{
-                    gv.run_app()
+                    gv.runApp()
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
             steps{
                 echo 'Testing app'
                 script{
-                    gv.run_tests()
+                    gv.runTest()
                 }
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             steps{
                 echo 'Deploying Dockers'
                 script{
-                    gv.run_dockers()
+                    gv.runDocker()
                 }
             }
         }
