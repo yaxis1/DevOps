@@ -1,6 +1,6 @@
 def installRequirements(){
     //sh cat 'Installing requirements' 
-    bat 'pip install -r requirements.txt'
+    bat 'pip install -r ./app/requirements.txt'
 }
 
 def runApp(){
