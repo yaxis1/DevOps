@@ -1,19 +1,19 @@
-def installRequirements(){
+def install_requirements(){
     //sh cat 'Installing requirements' 
     bat 'pip install -r requirements.txt'
 }
 
-def runApp(){
+def run_app(){
     //sh cat 'Running Application' 
     bat 'python3 ./app/run.py'
 }
 
-def runTest(){
+def run_tests(){
     //sh cat'Running Tests' 
     bat 'python3 ./app/test.py'
 }
 
-def deployDocker(){
+def run_dockers(){
     //sh cat'Running Dockers' 
     bat 'docker-compose up -d'
 }
