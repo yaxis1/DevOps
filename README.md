@@ -31,3 +31,5 @@ particular ports and attaching required volumes for respective services.
 ```
 docker-compose up
 ```
+
+Once the services are up, we need to integrate this in a Jenkins CI CD pipeline. 
