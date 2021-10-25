@@ -28,7 +28,9 @@ pipeline {
         stage ("Deploy Stage"){
             steps{
                 echo 'Deploying Dockers'
-                
+                script{
+                    gv.run_dockers()
+                }
             }
         }
     }
