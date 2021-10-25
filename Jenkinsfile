@@ -7,6 +7,10 @@ pipeline {
         stage ('Load env script'){
             steps{
                 echo "Loading groovy script"
+                script{
+                    gv = load "script.groovy"
+                }
+
                 
             }
         }
