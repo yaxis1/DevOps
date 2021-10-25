@@ -51,3 +51,7 @@ Once it is started, we will have an admin password which should be inserted on j
 We will use two features of Jenkins:
 1. FreeStyle Project - to check if the REST API is working as expected and 
 2. Pipeline to check - if Dockers are successfully deployed and hosting the website.
+
+
+![image](https://user-images.githubusercontent.com/38083799/138781004-a627f4ba-f1f7-4af7-a19b-380ef6a02c3c.png)
+
