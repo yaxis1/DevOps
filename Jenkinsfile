@@ -4,6 +4,7 @@ pipeline {
     agent any
 
     stages {
+        
         stage ('Loading groovy script and installing requirements'){
             steps{
                 echo "Loading groovy script and installing requirements"
