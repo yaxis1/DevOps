@@ -48,9 +48,10 @@ java -jar jenkins.war
 
 Once it is started, we will have an admin password which should be inserted on jenkins portal that is running on localhost:8080.
 
-We will use two features of Jenkins:
-1. FreeStyle Project - to check if the REST API is working as expected and 
-2. Pipeline to check - if Dockers are successfully deployed and hosting the website.
+We will use pipeline feature of jenkins
+1. Check if the REST API is working as expected 
+2. Check if tests are successful 
+2. Check if Dockers are successfully deployed and hosting the application.
 
 
 ![image](https://user-images.githubusercontent.com/38083799/138781004-a627f4ba-f1f7-4af7-a19b-380ef6a02c3c.png)
