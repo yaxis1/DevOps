@@ -1,7 +1,25 @@
-FROM python:3-onbuild
+# Step 1: Import the Os
+from alpine:latest
 
-COPY . /usr/src/app
+# Step 2: Install pip and Python Dependencies
+RUN apk add --no-cache python3 py3-pip
 
-#EXPOSE 2021/ this will be specified in docker-compose.yml
+# Step 3: Create a Work Directory
+WORKDIR /app
 
-CMD  ["python3", "run.py"]
+# Step 4: copy all Project Files
+COPY . /app
+
+# Step 5: Install all Dependencies for WSGI
+RUN set -e; \
+	apk add --no-cache --virtual .build-deps \
+		gcc \
+		libc-dev \
+		linux-headers \
+	; \
+	pip3 --no-cache-dir install -r requirements.txt; \
+	apk del .build-deps;
+
+# Step 6:  run the command to start uWSGI
+#!/bin/ash
+CMD ["uwsgi", "app.ini"]

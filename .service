@@ -3,10 +3,10 @@ Description=<a description of your application>
 After=network.target
 
 [Service]
-User=<username>
+User= #dockerid
 WorkingDirectory=<path to your app>
-ExecStart=<app start command>
-Restart=always
+ExecStart= <app start command>
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
