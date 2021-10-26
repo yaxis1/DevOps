@@ -5,12 +5,12 @@ def installRequirements(){
 
 def runApp(){
     //sh cat 'Running Application' 
-    bat 'python3 ./app/run.py'
+    bat 'start python3 ./app/run.py'
 }
 
 def runTest(){
     //sh cat'Running Tests' 
-    bat 'python3 ./app/test.py'
+    bat 'start python3 ./app/test.py'
 }
 
 def runDocker(){
