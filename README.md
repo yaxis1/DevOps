@@ -58,3 +58,6 @@ We will use two features of Jenkins:
 ![image](https://user-images.githubusercontent.com/38083799/138784350-9af8e651-e575-4253-a182-8920ded42eef.png)
 
 
+![image](https://user-images.githubusercontent.com/38083799/138889931-3363b381-de58-4e58-a5a2-73de90d4c8db.png)
+
+
