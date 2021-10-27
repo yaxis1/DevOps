@@ -32,11 +32,14 @@ Once application is running, the second docker is built to listen on port 2021
 docker-compose build
 docker-compose up
 ```
+![image](https://user-images.githubusercontent.com/38083799/139088226-eedb464b-f17a-42a3-84fa-88805115bd76.png)
 
 ![image](https://user-images.githubusercontent.com/38083799/138889931-3363b381-de58-4e58-a5a2-73de90d4c8db.png)
 
 ![image](https://user-images.githubusercontent.com/38083799/139087087-f99b807b-37c3-4e7b-9374-d0dc79993e7f.png)
 
-As the screenshot shows, first the application docker is built then nginx starts to fetch its configuration from default location /etc/nginx/conf.d/default.conf , however the second docker is built that replaces this file with custom configuration file that tells nginx to start looking on port 2021.
+As the screenshots show, first the application docker is built then nginx starts to fetch its configuration from default location /etc/nginx/conf.d/default.conf , however the second docker is built that replaces this file with custom configuration file that tells nginx to start looking on port 2021.
 
 This can be integrated with Jenkins adding additional pipeline just like branch 'linux_branch'
+
+
