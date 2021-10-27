@@ -24,7 +24,7 @@ The modified nginx.conf listens to traffic on port 80 and redirects to our appli
 
 This branch calls an ubuntu image instead of python image, installs required packages, copies all files from host to docker directory and runs the application on uwsgi. 
 
-Also introduces a nginx server, this time the second docker (with nginx image) depends on ubuntu server that installs nginx.
+Also introduces a nginx server, this time the second docker (with nginx image) depends on ubuntu server that installs nginx. Ports 8080 and 2021 are exposed internally.
 
 Once application is running, the second docker is built to listen on port 2021
 

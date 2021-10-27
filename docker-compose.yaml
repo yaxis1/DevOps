@@ -10,11 +10,8 @@ services:
       restart: on-failure
       expose:
         - 8080
-      #ports:
-      #  - 2021:2021
-     
-         #hostport:containerport
-
+        - 2021
+   
     nginx:
       build: ./nginx
       container_name: NGINX
