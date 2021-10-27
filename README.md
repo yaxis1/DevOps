@@ -56,6 +56,14 @@ docker-compose up
 
 Once the services are up, we need to integrate this in a Jenkins CI CD pipeline. 
 
+### Branch ngnix
+
+Instead of website1, we can also set up a nginx to communicate with the app - this architecture has been implemented in the same repository under branch name 'nginx'
+
+After, docker compose the docker output from nginx branch looks like this:
+
+![image](https://user-images.githubusercontent.com/38083799/138889931-3363b381-de58-4e58-a5a2-73de90d4c8db.png)
+
 
 # Jenkins Installation
 Jenkins can be installed either on the linux instance or local machine, since it is a production environment, it is a best practise to have jenkins portal available on local machine.
