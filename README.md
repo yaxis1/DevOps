@@ -10,7 +10,7 @@ This branch contains the same application from linux_branch but this time we use
 # app
 The app folder contains flask application running on localhost:2021
 
-The Dockerfile calls a python ubuntu image instead of python image, installs required packages, copies all files from host to docker directory and runs the application on uwsgi.
+The Dockerfile calls an ubuntu image instead of python image, installs required packages, copies all files from host to docker directory and runs the application on uwsgi.
 
 # nginx
 
@@ -22,12 +22,11 @@ The modified nginx.conf listens to traffic on port 80 and redirects to our appli
 
 ### Running Dockercompose
 
-Docker compose makes it easier to integrate with multiple dockers, instead of writing a seperate docker file for each service, we can draft a docker-compose.yml, opening particular ports and attaching required volumes for respective services.
+This branch calls an ubuntu image instead of python image, installs required packages, copies all files from host to docker directory and runs the application on uwsgi. 
 
-This branch introduces a nginx server, this time the second docker (with nginx image) depends on ubuntu server that installs nginx.
+Also introduces a nginx server, this time the second docker (with nginx image) depends on ubuntu server that installs nginx.
 
 Once application is running, the second docker is built to listen on port 2021
-
 
 ```
 docker-compose build
