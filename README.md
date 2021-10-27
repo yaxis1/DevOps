@@ -46,6 +46,8 @@ Docker compose makes it easier to integrate with multiple dockers, instead of wr
 
 To illustrate DockerCompose, we introduce a service that depends on main application, docker compose defines ports and dependability features on multiple dockers.
 
+Port 2021 of localmachine is bridged with Docker port 2021
+
 ```
 docker-compose build
 docker-compose up
