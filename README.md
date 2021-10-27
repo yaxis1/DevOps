@@ -105,7 +105,7 @@ Deploys dockers
 
 In the image above, we can see the pipeline terminated due to failure after 3rd stage, as soon as this is fixed and the repository is pushed, jenkins will run the pipeline again and try to Deploy the application.
 
-After, fixes and lot of git commits, the final pipeline looks like this which successful builds and Application Deployment: 
+After, fixes and couple of git commits, the final pipeline looks like this which successful builds and Application Deployment: 
 
 ![image](https://user-images.githubusercontent.com/38083799/139080421-4b3aaf31-07fc-453f-a5f1-c99abfe1080b.png)
 
