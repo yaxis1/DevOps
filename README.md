@@ -1,60 +1,43 @@
-This project follows a simple REST application integrating it with continuous integration and continuous continuous deployment on a Docker container while trying to implement a microservice.  
+This Branch is an alternative approach to linux_branch
 
-The REST app has 5 input and 1 output parameters that is included with a html file.
+Here we try to integarte nginx to application, using another docker.
 
-The app runs on port 2021 - The app and all it's contents will be pushed to a linux instance to take better advantage of dockers.
+![image](https://user-images.githubusercontent.com/38083799/139084207-3aa4391a-d3b0-4d7d-9c44-c3d42331abb2.png)
 
-# Docker Installation: 
-```
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt install docker.io
-systemctl start docker
-systemctl enable docker
-docker --version
-```
+This branch contains the same application from linux_branch but this time we use 'ubuntu' image in docker file instead of python image. This is required as we are going to install uwsgi on the instance.
 
-A Dockerfile is created that uses python3 image and installs are requirements from requirements.txt, the choice of a python docker image has been made instead of linux image to
-speed up deployment.
 
-### Building docker image:
-```
-docker build -t image-name
-docker run <image id>
-```
+# app
+The app folder contains flask application running on localhost:2021
 
-This builds the docker from Dockerfile, however, if we need to integrate more services in the app, we can use docker-compose.
-Docker compose makes it easier to integrate with other docker instances, instead of writing a seperate docker file for each service, we can draft a docker-compose.yml, opening
-particular ports and attaching required volumes for respective services.
+The Dockerfile calls a python ubuntu image instead of python image, installs required packages, copies all files from host to docker directory and runs the application on uwsgi.
+
+# nginx
+
+This folder contains A docker file and nginx configuration file.
+
+The Docker calls nginx image from docker hub and replaces the default nginx.conf file with our own file.
+
+The modified nginx.conf listens to traffic on port 80 and redirects to our application that is running on 2021.
 
 ### Running Dockercompose
+
+Docker compose makes it easier to integrate with multiple dockers, instead of writing a seperate docker file for each service, we can draft a docker-compose.yml, opening particular ports and attaching required volumes for respective services.
+
+This branch introduces a nginx server, this time the second docker (with nginx image) depends on ubuntu server that installs nginx.
+
+Once application is running, the second docker is built to listen on port 2021
+
+
 ```
+docker-compose build
 docker-compose up
 ```
 
-![image](https://user-images.githubusercontent.com/38083799/138735378-44fa2c46-cdcd-4eda-b0a3-3e2154f117de.png)
-![image](https://user-images.githubusercontent.com/38083799/138735423-ef73f470-004a-4abe-90ee-98a2dc060b77.png)
+![image](https://user-images.githubusercontent.com/38083799/138889931-3363b381-de58-4e58-a5a2-73de90d4c8db.png)
 
-Once the services are up, we need to integrate this in a Jenkins CI CD pipeline. 
+![image](https://user-images.githubusercontent.com/38083799/139087087-f99b807b-37c3-4e7b-9374-d0dc79993e7f.png)
 
+As the screenshot shows, first the application docker is built then nginx starts to fetch its configuration from default location /etc/nginx/conf.d/default.conf , however the second docker is built that replaces this file with custom configuration file that tells nginx to start looking on port 2021.
 
-# Jenkins Installation
-Jenkins can be installed either on the linux instance or local machine, since it is a production environment, it is a best practise to have jenkins portal available on local machine.
-
-A Java runtime is required for jenkins to run, after installing java, we move to jenkins directory and start jenkins.
-```
-java -jar jenkins.war
-```
-
-Once it is started, we will have an admin password which should be inserted on jenkins portal that is running on localhost:8080.
-
-We will use two features of Jenkins:
-1. FreeStyle Project - to check if the REST API is working as expected and 
-2. Pipeline to check - if Dockers are successfully deployed and hosting the website.
-
-
-![image](https://user-images.githubusercontent.com/38083799/138781004-a627f4ba-f1f7-4af7-a19b-380ef6a02c3c.png)
-
-![image](https://user-images.githubusercontent.com/38083799/138784350-9af8e651-e575-4253-a182-8920ded42eef.png)
-
-
+This can be integrated with Jenkins adding additional pipeline just like branch 'linux_branch'
